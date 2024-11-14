@@ -1,0 +1,18 @@
+<%= link_to "Home", "/"%>
+
+
+<%# Comentario  %>
+<h1>Hola <%= @nombre %></h1>
+<% @skills.each do | skill | %>
+    <p><%= skill %></p>
+<% end %>
+
+<%# Condiciones %>
+<% if @nombre == "Christian" %>
+    <p>Esto es una condicion</p>
+<% end %>
+
+<%# ciclos %>
+<% 10.times do | i | %>
+<p><%= i %></p>
+<% end %>

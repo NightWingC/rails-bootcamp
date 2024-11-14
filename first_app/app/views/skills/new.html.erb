@@ -1,0 +1,5 @@
+<h1>skills</h1>
+<%= form_with url:"/skills/create", data: { turbo: false } do |f| %>
+    <%= f.text_field :skills, placeholder: "ruby, js, css" %>
+    <%= f.submit "Enviar" %>
+<% end %>
