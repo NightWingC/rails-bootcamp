@@ -1,5 +1,5 @@
 <ul>
     <% @cursos.each do | course | %>
-        <li><%= course.title %></li>
+        <%= link_to course.title, show_cursos_path( id: course.id ) %>
     <% end %>
 </ul>

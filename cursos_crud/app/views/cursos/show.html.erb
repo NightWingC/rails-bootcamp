@@ -1,0 +1,4 @@
+<h2><%= @course.title %></h2>
+<p><%= @course.description%></p>
+<%= link_to "Editar", edit_cursos_path( id: @course.id ) %>
+<%= link_to "Eliminar", edit_cursos_path( id: @course.id ) %>
