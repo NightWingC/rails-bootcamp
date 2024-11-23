@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :videos
   get "cursos/", to: "cursos#index"
   get "cursos/new"
   get "cursos/:id", to: "cursos#show", as: "show_cursos"

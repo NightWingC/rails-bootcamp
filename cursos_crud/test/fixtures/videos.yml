@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: videos
+#
+#  id          :integer          not null, primary key
+#  title       :string
+#  description :string
+#  duration    :integer
+#  visible     :boolean
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  title: MyString
+  description: MyString
+  duration: 1
+  visible: false
+
+two:
+  title: MyString
+  description: MyString
+  duration: 1
+  visible: false
