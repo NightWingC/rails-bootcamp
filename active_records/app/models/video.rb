@@ -22,6 +22,10 @@ class Video < ApplicationRecord
   after_save :send_mail, if: :has_description?
   after_update :show_title
 
+  scope :has_duration, -> { where("duration >= ?", 0) }
+  scope :has_description, -> { where.not(description: nil) }
+  scope :has_description_and_duration, -> { where.not(description: nil).where.not(description: nil) }
+
 
   def has_description?
     !description.nil? && !self.description.empty?
