@@ -1,15 +1,13 @@
 # == Schema Information
 #
-# Table name: courses
+# Table name: categories
 #
 #  id         :integer          not null, primary key
-#  title      :string           default("")
+#  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  visible    :boolean          default(TRUE)
 #
-
-one:
-  title: MyString
-
-two:
-  title: MyString
+class Category < ApplicationRecord
+  has_many :video_categories
+end
