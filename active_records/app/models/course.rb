@@ -6,6 +6,7 @@
 #  title      :string           default("")
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  state      :integer          default(0)
 #
 class Course < ApplicationRecord
   # Nombre de tabla plural
@@ -13,11 +14,22 @@ class Course < ApplicationRecord
   has_many :categories, through: :videos, source: :categories
   has_many :comments, as: :commentable
 
+  # ? - ! para cambiar
+  enum state: [ :draft, :published ]
+
+  def duration
+    videos.sum("videos.duration")
+  end
+
   def self.has_videos
     # joins(:videos)
     joins(:videos).where("videos.visible =?", true)
     # joins(:videos).where( videos: { visible: true })
     # joins("INNER JOIN videos ON courses.id = videos.course_id  ").where(videos: { visible: true })
+  end
+
+  def self.has_videos_with_duration
+    joins(:videos).where(videos: { visible: true }).where("videos.duration > ?", 10).uniq
   end
 
   def self.no_has_videos

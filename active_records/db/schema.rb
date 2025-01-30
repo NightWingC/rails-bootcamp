@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_01_23_013254) do
+ActiveRecord::Schema[7.2].define(version: 2025_01_29_234904) do
   create_table "categories", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
@@ -31,6 +31,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_23_013254) do
     t.string "title", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "state", default: 0
   end
 
   create_table "video_categories", force: :cascade do |t|
