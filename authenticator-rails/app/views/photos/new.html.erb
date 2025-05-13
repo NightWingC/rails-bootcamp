@@ -1,0 +1,9 @@
+<p>Intentos <%= session[:intentos]%> </p>
+<%= render "form", photo: @photo, name: "Pepe" do %>
+
+<h1>Agregar foto</h1>
+<% end %>
+
+<%# Otra forma de usar el parcial  %>
+<%# <%= rende partial: "form", locals: { name: "Pepe" } %> 
+

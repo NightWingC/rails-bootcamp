@@ -1,0 +1,19 @@
+<h1>Photos</h1>
+<%= content_for :sidebar_options do %>
+    <p>Hola desde index/photos</p>
+<% end %>
+
+<%= hero_banner do %>
+    <h1>Hola Index</h1>
+<% end %>
+
+<!-- 
+<% @photos.each do |photo| %>
+    <%= render photo %>
+<% end %>
+--->
+
+<%# 
+<%= render partial: "photos/fotos", collection: @photos, as: :photo %>
+
+<%= render @photos %>

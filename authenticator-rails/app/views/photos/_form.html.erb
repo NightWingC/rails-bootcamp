@@ -1,0 +1,32 @@
+<h2>Hola <%= name %></h2>
+
+<%= yield %>
+
+
+<%= form_with model: @photo do | form |%>
+ 
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <div>
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+    </div>
+    <div>
+        <%= form.label "Selecciona un Todo"%>
+        <%# <%= select_tag :todo_id, option_for_select([
+            ["Primer valor", 1],
+            ["Segundo valor", 2]
+        ]) %> 
+        <%# <%= select_tag :todo_id, options_from_collection_for_select( Todo.all, :id, :title ) %>
+        <%# <%= select_tag "phhoto[todo_id]", options_from_collection_for_select( Todo.all, :id, :title ) %> 
+        <%= form.collection_select(:todo_id, Todo.all, :id, :title, { include_blank: true }, { class: "custom" }) %>
+
+    </div>
+    <div>
+        <%= form.check_box :is_public%>
+    </div>
+    <div>
+        <%= form.label :image_url %>
+        <%= form.url_field :image_url %>
+    </div>
+    <%= form.submit "Enviar" %>
+<% end %>

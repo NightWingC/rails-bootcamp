@@ -1,0 +1,10 @@
+<%= link_to "Ir al inicio", "/" %>
+<%= form_with url:"/hi", method: :post, data: { turbo: false } do | form | %>
+    <div>
+        <%= label_tag :name, "Nombre", style:"margin-left: 5em; display: inline-block" %>
+        <%= form.text_field :name %>
+    </div>
+    <div>
+        <%= submit_tag "Enviar" %>
+    </div>
+<% end %>

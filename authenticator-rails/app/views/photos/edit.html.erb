@@ -1,0 +1,45 @@
+
+<%= form_with model: @photo do | form |%>
+
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+    <input type="hidden" name="_method" value="PATCH">
+
+    <%# CHECKBOX %>
+    <div>
+        <%= form.collection_check_boxes(:tag_ids, @tag, :id, :title)%>
+        <%= hidden_field_tag "photo[tag_ids][]", nil %>
+        <%@tag.each do | tag| %>
+        <%= check_box_tag "photo[tag_ids][]", tag.id, false, id: "tag_#{ tag.id }"  %>
+        <%= label_tag "tag_#{ tag.id }", tag.title %>
+        <% end %>
+        <%# <%= form.check_box "tagids[]", name: "photo[tag_ids][]", include_hidden: false %> 
+        <%# <%= form.check_box :is_public%> 
+        <%# <%= check_box_tag "photo[is_public]", true, false%> 
+    </div>
+
+    <%# RADIO BUTTONS  %>
+    <!--- 
+    <div>
+        <%= Todo.all.each do |todo| %>
+            <%= form.label :todo_id, todo.title %>
+            <%= form.radio_button :todo_id, todo.id %>
+        <% end %>
+    </div>
+    --->
+    <div>
+        <%= form.collection_radio_buttons :todo_id, Todo.all, :id, :title %>
+    </div>
+    
+    <div>
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+    </div>
+    <div>
+        <%= form.label :image_url %>
+        <%= form.url_field :image_url %>
+    </div>
+    <%= form.submit "Enviar" %>
+
+<!---- </form>--->
+<% end %>
